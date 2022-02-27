@@ -1,7 +1,7 @@
 # CSE-360-Workshop-1
-=======================================================================================================================
+==========
 Question 1
-=======================================================================================================================
+==========
 
 I took the code from github labeled as “point-robot-simulator.ipynb” and modified the control policy so that it would draw a tilted ellipse. First, I searched for the parametric equations for an ellipse. I found this website (https://www.mathopenref.com/coordparamellipse.html), which explained that the parametric equations for an ellipse are the following:
 
@@ -18,9 +18,9 @@ To tilt the ellipse, I realized that I would have to rotate vectors since the co
 ux = -(ux*cos(pi/6)-uy*sin(pi/6))
 uy = ux*sin(pi/6)-uy*cos(pi/6)
 
-=======================================================================================================================
+==========
 Question 2
-=======================================================================================================================
+==========
 
 a) To create the starfish shape, I used the parametric equations found from the website given in the problem statement and used that as my control policy as seen from block 4:
     ux = -sin(t)*sin(5*t)+5*cos(t)*cos(5*t)-2*sin(t)
@@ -36,9 +36,9 @@ c) Next, to implement the PI-controller, we would have to calculate error. Here,
    Finally, we simulate this new control policy to give our corrected path. 
     ***I couldn’t get this part to fully work, I believe the issue lies with kp and ki. I don’t know what to set it as.
     
-=======================================================================================================================
+==========
 Question 3
-=======================================================================================================================
+==========
 
 To create a 3-D helix shape, I knew that I would need three different velocities for each direction. I updated the control policy in block 4 so that it would return an array of length 3. Next, I searched for the parametric equations for a helix, which lead me to this website (https://mathworld.wolfram.com/Helix.html). I came up with the following control policy: 
   ux = t
@@ -50,14 +50,14 @@ To create a 3-D helix shape, I knew that I would need three different velocities
   ax.plot(x, y, z, 'green');
     *Note I wasn’t sure how to make the animation 3-D, but I did plot it in 3-D
 
-=======================================================================================================================
+==========
 Question 4
-=======================================================================================================================
+==========
 
 For this solution, I used the code from the github provided labeled as “trajectories.ipynb”.  Here, I mapped out the path that I would have to take by hand in order to avoid the obstacles. Since we aren’t concerned with smoothness of lines, I made straight lines to each point. 
 
-=======================================================================================================================
+==========
 Question 5
-=======================================================================================================================
+==========
 
 For this solution,  I used the same code from solution 4 and added the code from github under the block named “Polynomial Trajectories”. Here, we are concerned with smoothness of lines and avoiding obstacles. To do this, I implemented a trial-and-error approach to the problem, where I would change the starting and ending velocities between points. If a line collided with an obstacle I would know to change either the starting velocity or ending velocity. 
